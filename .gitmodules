@@ -1,0 +1,6 @@
+[submodule "nvim/pack/man/start/coc.nvim"]
+	path = nvim/pack/man/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
+[submodule "nvim/pack/man/start/ultisnips"]
+	path = nvim/pack/man/start/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
