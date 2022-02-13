@@ -7,13 +7,11 @@ tmux and what not.
 with the following changes:
 * `tmux-spotify` doesn't work on linux. It can be replaced though. 
 * Change the apple icon to tux :)
-    
 
 ## Requirements
 
-* `neovim >= 0.6.0`
-* `tmux` 
-* `zsh`
+* `neovim >= 0.6.0`, with neovim python support (`pip3 install neovim`).
+* `zsh` with oh-my-zsh installation. Check [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) for reference. 
 
 
 ## Thanks
