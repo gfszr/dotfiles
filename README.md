@@ -8,6 +8,10 @@ with the following changes:
 * `tmux-spotify` doesn't work on linux. It can be replaced though. 
 * Change the apple icon to tux :)
 
+It looks like this:
+
+![Demo](demo.gif)
+
 ## Requirements
 
 * `neovim >= 0.6.0`, with neovim python support (`pip3 install neovim`).
