@@ -4,3 +4,6 @@
 [submodule "nvim/pack/man/start/ultisnips"]
 	path = nvim/pack/man/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "nvim/pack/man/opt/jellybeans.vim"]
+	path = nvim/pack/man/opt/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim
