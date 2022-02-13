@@ -14,7 +14,7 @@
 	path = tmux/plugins/tmux-cpu
 	url = https://github.com/tmux-plugins/tmux-cpu
 [submodule "tmux/tmux-spotify"]
-	path = tmux/tmux-spotify
+	path = tmux/plugins/tmux-spotify
 	url = https://github.com/robhurring/tmux-spotify
 [submodule "tmux-yank"]
 	path = tmux/plugins/tmux-yank
