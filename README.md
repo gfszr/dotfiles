@@ -23,5 +23,5 @@ It looks like this:
 Almost all is based on amazing plugins and themes with no/small modifications. For easy upgrades in
 the future, plugins are referenced as submodules. I've made modifications to the following:
 
-* The TMUX theme I am using the amazing is [maglev](https://github.com/caiogondim/maglev) by [caigondim](https://github.com/caiogondim) with only small modifications.
+* The TMUX theme I am using is the amazing [maglev](https://github.com/caiogondim/maglev) by [caigondim](https://github.com/caiogondim), with only small modifications.
 
