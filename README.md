@@ -59,8 +59,8 @@ Although not required and not attached, I use:
 
 ```
 * [bat](https://github.com/sharkdp/bat.git) - nicer replacement for `cat`. FZF integration in vim shows file previews with `bat`.
-* Use `:CocInstall` to install coc.nvim plugins! I use
-  [coc-jedi](https://github.com/pappasam/coc-jedi.git), [coc-go](https://github.com/josa42/coc-go.git), [coc-clangd](https://github.com/clangd/coc-clangd)
+* Use `:CocInstall` to install coc.nvim plugins! I use [coc-jedi](https://github.com/pappasam/coc-jedi.git), [coc-go](https://github.com/josa42/coc-go.git), [coc-clangd](https://github.com/clangd/coc-clangd)
+* If you wish, you can install [vista.vim](https://github.com/liuchengxu/vista.vim), useful for symbol searching.
 
 ## Patched fonts
 
