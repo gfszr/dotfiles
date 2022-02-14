@@ -55,3 +55,6 @@
 [submodule "nvim/pack/man/start/fzf.vim"]
 	path = nvim/pack/man/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "nvim/pack/man/start/vim-floaterm"]
+	path = nvim/pack/man/start/vim-floaterm
+	url = https://github.com/voldikss/vim-floaterm
