@@ -360,12 +360,12 @@ endfunction
 call ConfigFloaterm('t', 'zsh', 'zsh')
 call ConfigFloaterm('p', 'ipython', 'ipython')
 
-function! CreateTmuxPopup(b, command)
-    exec 'nnoremap <leader>' . a:b . ' :!tmux popup -h 80\% -w 90\% -d ' . getcwd() . ' -E ' . a:command . '<CR><CR>'
+function! CreateTmuxPopup(command)
+    call system("tmux popup -h 80\% -w 90\% -d " . getcwd() . " -E " . a:command)
 endfunction
 
-call CreateTmuxPopup('g', 'lazygit')
-call CreateTmuxPopup('d', 'git diff')
+nnoremap <leader>g :call CreateTmuxPopup('lazygit')<CR>
+nnoremap <leader>d :call CreateTmuxPopup('git diff')<CR>
 
 
 let g:floaterm_borderchars =  ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
