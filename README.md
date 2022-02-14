@@ -26,8 +26,8 @@ Although not required and not attached, I use:
 
 * [delta](https://github.com/dandavison/delta) - for nicer git diffs. Make sure to cnofigure your
   `.gitconfig` with diffing using delta. I use the following in my `.gitconfig`:
-  ```
-  [core]
+```
+[core]
     pager = delta
 
 [interactive]
@@ -45,7 +45,7 @@ Although not required and not attached, I use:
 [diff]
     colorMoved = default
 
-  ```
+```
 * [bat](https://github.com/sharkdp/bat.git) - nicer replacement for `cat`. FZF integration in vim shows file previews with `bat`.
 
 
