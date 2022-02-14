@@ -28,7 +28,7 @@ otherwise some features may not work.
 * `fzf` - for support using FZF integration with vim. 
 * [lazygit](https://github.com/jesseduffield/lazygit) for a good git TUI through vim and tmux.
 * `yarn` and `node`, in order for coc.nvim to work. Run `yarn install` in
-  `nvim/pack/man/start/coc.nvim' after installation, other than using a precompiled release branch.
+  `nvim/pack/man/start/coc.nvim` after installation, other than using a precompiled release branch.
 
 For extra configurations and useful installations, please refer to the recommendations section.
 
