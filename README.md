@@ -12,6 +12,14 @@ It looks like this:
 
 ![Demo](demo.gif)
 
+## Installation
+
+I've attached a very simple script `setup.sh` that removes prior configurations and creates symnolic
+to the correct directories in this repo. 
+
+The setup script does not install dependencies, so make sure to install prior dependencies,
+otherwise some features may not work.
+
 ## Requirements
 
 * `neovim >= 0.6.0`, with neovim python support (`pip3 install neovim`).
@@ -19,6 +27,8 @@ It looks like this:
 * `zsh` with oh-my-zsh installation. Check [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) for reference. 
 * `fzf` - for support using FZF integration with vim. 
 * [lazygit](https://github.com/jesseduffield/lazygit) for a good git TUI through vim and tmux.
+* `yarn` and `node`, in order for coc.nvim to work. Run `yarn install` in
+  `nvim/pack/man/start/coc.nvim' after installation, other than using a precompiled release branch.
 
 ## Recommendations
 
@@ -47,8 +57,13 @@ Although not required and not attached, I use:
 
 ```
 * [bat](https://github.com/sharkdp/bat.git) - nicer replacement for `cat`. FZF integration in vim shows file previews with `bat`.
+* Use `:CocInstall` to install coc.nvim plugins! I use
+  [coc-jedi](https://github.com/pappasam/coc-jedi.git), [coc-go](https://github.com/josa42/coc-go.git), [coc-clangd](https://github.com/clangd/coc-clangd)
 
+## Patched fonts
 
+I used [nerd-fonts](https://github.com/ryanoasis/nerd-fonts) to patch `Monaco` with many nice
+glyphs. I also recommend `Consolas`.
 
 ## Thanks
 
