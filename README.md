@@ -11,6 +11,8 @@ with the following changes:
 It looks like this:
 
 ![Demo](demo.gif)
+![Demo2](pic.jpg)
+![Demo3](pic2.jpg)
 
 ## Installation
 
