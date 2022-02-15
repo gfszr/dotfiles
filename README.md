@@ -11,7 +11,12 @@ with the following changes:
 It looks like this:
 
 ![Demo](demo.gif)
+
+Using `coc.nvim`'s autocompletion together with borders for floating windows:
+
 ![Demo2](pic.jpg)
+
+
 ![Demo3](pic2.jpg)
 
 ## Installation
