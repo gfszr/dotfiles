@@ -25,6 +25,8 @@ highlight ColorColumn ctermbg=233
 set background=dark
 set cursorline
 color jellybeans
+exec 'hi SignColumn ctermbg=' . synIDattr(hlID('LineNr'),'bg')
+set signcolumn=yes
 set nohlsearch
 
 " Setting history
@@ -88,12 +90,6 @@ set nowritebackup
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -374,10 +370,31 @@ let g:floaterm_wintitle = v:false
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.8
 
-""" }}} Floaterm
+"" }}} Floaterm
 
 """ {{{ vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 """ }}} vimspector
 
 
+""" {{{ dashboard.nvim
+let g:dashboard_default_executive ='fzf.vim'
+""" }}} dashvoard.nvim
+
+""" {{{ gitsigns
+lua << EOF
+require('gitsigns').setup {
+    signs = {
+    add          = {hl = 'GitSignsAdd'   , text = '', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeNr'},
+  },
+  attach_to_untracked = false
+}
+EOF
+
+" Change the default blue background for diffChange to the background of SignColumn
+exec 'hi diffChange ctermfg=' . synIDattr(hlID('diffChange'), 'bg') . ' ctermbg=' . synIDattr(hlID('SignColumn'), 'bg')
+""" }}} gitsigns

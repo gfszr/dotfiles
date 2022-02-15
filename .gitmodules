@@ -58,3 +58,9 @@
 [submodule "nvim/pack/man/start/vim-floaterm"]
 	path = nvim/pack/man/start/vim-floaterm
 	url = https://github.com/voldikss/vim-floaterm
+[submodule "nvim/pack/man/start/plenary.nvim"]
+	path = nvim/pack/man/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "nvim/pack/man/start/gitsigns.nvim"]
+	path = nvim/pack/man/start/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim
