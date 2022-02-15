@@ -205,12 +205,6 @@ let g:UltiSnipsJumpForwardTrigger="KJ"
 
 """ }}} Ultisnips
 
-""" {{{ SingleCompile
-
-nnoremap <F10> :SCCompileRun<cr>
-
-""" }}} SingleCompile
-
 """ {{{ FZF
 
 set rtp+=/usr/local/opt/fzf
