@@ -46,9 +46,6 @@
 [submodule "nvim/pack/man/start/tcomment_vim"]
 	path = nvim/pack/man/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim.git
-[submodule "nvim/pack/man/start/vimspector"]
-	path = nvim/pack/man/start/vimspector
-	url = https://github.com/puremourning/vimspector
 [submodule "nvim/pack/man/start/delimitMate"]
 	path = nvim/pack/man/start/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
@@ -64,3 +61,15 @@
 [submodule "nvim/pack/man/start/gitsigns.nvim"]
 	path = nvim/pack/man/start/gitsigns.nvim
 	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "nvim/pack/man/start/nvim-dap-ui"]
+	path = nvim/pack/man/start/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui
+[submodule "nvim/pack/man/start/nvim-dap"]
+	path = nvim/pack/man/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap
+[submodule "nvim/pack/man/start/nvim-dap-go"]
+	path = nvim/pack/man/start/nvim-dap-go
+	url = https://github.com/leoluz/nvim-dap-go
+[submodule "nvim/pack/man/start/nvim-dap-python"]
+	path = nvim/pack/man/start/nvim-dap-python
+	url = https://github.com/mfussenegger/nvim-dap-python

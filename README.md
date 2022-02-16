@@ -10,14 +10,18 @@ with the following changes:
 
 It looks like this:
 
-![Demo](demo.gif)
+![Demo](imgs/demo.gif)
 
 Using `coc.nvim`'s autocompletion together with borders for floating windows:
 
-![Demo2](pic.jpg)
+![Demo2](imgs/pic.jpg)
 
 
-![Demo3](pic2.jpg)
+![Demo3](imgs/pic2.jpg)
+
+Using `nvim-dap` and `nvim-dap-ui` to create a nice debug session:
+
+![Demo4](imgs/dap_debug.jpg)
 
 ## Installation
 
