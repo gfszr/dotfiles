@@ -1,19 +1,25 @@
 {
-    "diagnostic.enable":false,
+    "diagnostic.enableSign":false,
+    "diagnostic.highlighLimit":0,
+    "diagnostic.floatConfig": {
+        "border":true,
+        "highlight":"Normal",
+        "borderhighlight":"Normal"
+    },
     "hover.floatConfig": {
-        "border":[1,1,1,1],
+        "border":true,
         "highlight":"Normal",
         "borderhighlight":"Normal"
     },
     "dialog.floatHighlight":"Normal",
     "dialog.floatBorderHighlight":"Normal",
     "signature.floatConfig": {
-        "border":[1,1,1,1],
+        "border":true,
         "highlight":"Normal",
         "borderhighlight":"Normal"
     },
     "suggest.floatConfig": {
-        "border":[1,1,1,1],
+        "border":true,
         "highlight":"Normal",
         "borderhighlight":"Normal"
     },
@@ -23,7 +29,6 @@
         "method" : "",
         "function" : "",
         "constructor" : "",
-        "snippet":"",
         "field" : "ﰠ",
         "variable" : "",
         "class" : "ﴯ",
