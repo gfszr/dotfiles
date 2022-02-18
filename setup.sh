@@ -63,6 +63,6 @@ echo 'Tmux conf installed successfully!'
 link `pwd`/nvim/init.vim $VIM_CONF
 echo 'Vim .vimrc compatability symlink installed successfully!'
 
-link `pwd`/zsh_theme/bullet_train.zsh/bullet-train.zsh-theme $ZSH_BULLET_TRAIN_THEME
+link `pwd`/zsh_theme/bullet-train.zsh/bullet-train.zsh-theme $ZSH_BULLET_TRAIN_THEME
 echo 'Bullet train ZSH theme was installed successfully!'
 
