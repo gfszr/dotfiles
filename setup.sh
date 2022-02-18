@@ -7,7 +7,7 @@ TMUX_CONF=$HOME/.tmux.conf
 NVIM_CONF=$NVIM_DIR/init.vim
 VIM_CONF=$HOME/.vimrc
 ZSHRC=$HOME/.zshrc
-ZSH_BULLET_TRAIN_THEME=$HOME/.ohmyzsh/custom/themes/bullet-train.zsh-theme
+ZSH_BULLET_TRAIN_THEME=$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
 
 echo 'Checking for pre-existing files and directories'
 
