@@ -31,6 +31,8 @@ to the correct directories in this repo.
 The setup script does not install dependencies, so make sure to install prior dependencies,
 otherwise some features may not work.
 
+For iTerm2 colors, I've attached `colors.itermcolors`. Import it in iTerm2 preferences.
+
 ## Requirements
 
 * `neovim >= 0.6.0`, with neovim python support (`pip3 install neovim`).
