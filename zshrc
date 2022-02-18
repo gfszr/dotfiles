@@ -11,6 +11,13 @@ export LESSHISTFILE=/dev/null
 
 BULLETTRAIN_PROMPT_CHAR=
 BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+BULLETTRAIN_PROMPT_ORDER=(
+    time
+    status
+    custom
+    dir
+    git
+    )
 ZSH_THEME="bullet-train"
 
 export COLORTERM=truecolor
