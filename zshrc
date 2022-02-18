@@ -2,6 +2,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+if [[ `uname -m` == 'arm64' ]]; then
+    export PATH=$PATH:/opt/homebrew/bin
+fi
+
 # Don't save history for less
 export LESSHISTFILE=/dev/null
 
