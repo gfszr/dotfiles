@@ -73,3 +73,6 @@
 [submodule "nvim/pack/man/start/nvim-dap-python"]
 	path = nvim/pack/man/start/nvim-dap-python
 	url = https://github.com/mfussenegger/nvim-dap-python
+[submodule "zsh_theme/bullet-train.zsh"]
+	path = zsh_theme/bullet-train.zsh
+	url = https://github.com/caiogondim/bullet-train.zsh

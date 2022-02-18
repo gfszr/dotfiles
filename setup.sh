@@ -7,6 +7,7 @@ TMUX_CONF=$HOME/.tmux.conf
 NVIM_CONF=$NVIM_DIR/init.vim
 VIM_CONF=$HOME/.vimrc
 ZSHRC=$HOME/.zshrc
+ZSH_BULLET_TRAIN_THEME=$HOME/.ohmyzsh/custom/themes/bullet-train.zsh-theme
 
 echo 'Checking for pre-existing files and directories'
 
@@ -45,6 +46,7 @@ remove_pre_existing $NVIM_DIR
 remove_pre_existing $TMUX_DIR
 remove_pre_existing $TMUX_CONF
 remove_pre_existing $ZSHRC
+remove_pre_existing $ZSH_BULLET_TRAIN_THEME
 
 link `pwd`/zshrc $ZSHRC
 echo 'zshrc file installed successfully!'
@@ -61,4 +63,6 @@ echo 'Tmux conf installed successfully!'
 link `pwd`/nvim/init.vim $VIM_CONF
 echo 'Vim .vimrc compatability symlink installed successfully!'
 
+link `pwd`/zsh_theme/bullet_train.zsh/bullet-train.zsh-theme $ZSH_BULLET_TRAIN_THEME
+echo 'Bullet train ZSH theme was installed successfully!'
 
