@@ -185,22 +185,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 """ }}} coc.nvim
-
-""" {{{ Aerojump
-
-nmap <space> <Plug>(AerojumpSpace)
-
-""" }}} Aerojump
 
 """ {{{ Ultisnips
 
@@ -481,7 +466,27 @@ nnoremap <silent> <leader>q :call DisconnectDapSession()<CR>
 """ }}} nvim-dap
 
 
+""" {{{ Telescope.nvim
 lua <<EOF
-require('telescope').setup()
+require('nvim-web-devicons').setup()
+require('telescope').setup({
+    defaults = {
+        mappings = {
+            i = {
+                ["<esc>"] = require('telescope.actions').close,
+            }
+        },
+        selection_caret = ' ',
+        prompt_prefix = ' ',
+    }
+})
 require('telescope').load_extension('coc')
+require('telescope').load_extension('ultisnips')
 EOF
+
+nmap <space>ds :Telescope coc document_symbols<CR>
+nmap <space>ws :Telescope coc workspace_symbols<CR>
+nmap <space>sn :Telescope ultisnips<CR>
+nmap <space>r :Telescope coc references<CR>
+
+""" }}} Telescope.nvim
