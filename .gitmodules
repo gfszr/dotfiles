@@ -31,9 +31,6 @@
 [submodule "nvim/pack/man/start/vim-snippets"]
 	path = nvim/pack/man/start/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
-[submodule "nvim/pack/man/start/vim-tmux-focus-events"]
-	path = nvim/pack/man/start/vim-tmux-focus-events
-	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
 [submodule "nvim/pack/man/start/vim-tmux-navigator"]
 	path = nvim/pack/man/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
