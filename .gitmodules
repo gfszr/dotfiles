@@ -73,3 +73,9 @@
 [submodule "zsh_theme/bullet-train.zsh"]
 	path = zsh_theme/bullet-train.zsh
 	url = https://github.com/caiogondim/bullet-train.zsh
+[submodule "nvim/pack/man/start/telescope.nvim"]
+	path = nvim/pack/man/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "nvim/pack/man/start/telescope-coc.nvim"]
+	path = nvim/pack/man/start/telescope-coc.nvim
+	url = https://github.com/fannheyward/telescope-coc.nvim
