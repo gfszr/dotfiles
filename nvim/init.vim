@@ -482,11 +482,13 @@ require('telescope').setup({
 })
 require('telescope').load_extension('coc')
 require('telescope').load_extension('ultisnips')
+require('telescope').load_extension('dap')
 EOF
 
 nmap <space>ds :Telescope coc document_symbols<CR>
 nmap <space>ws :Telescope coc workspace_symbols<CR>
 nmap <space>sn :Telescope ultisnips<CR>
 nmap <space>r :Telescope coc references<CR>
+nmap <space>dap :Telescope dap commands<CR>
 
 """ }}} Telescope.nvim
