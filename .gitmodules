@@ -79,3 +79,9 @@
 [submodule "nvim/pack/man/start/telescope-coc.nvim"]
 	path = nvim/pack/man/start/telescope-coc.nvim
 	url = https://github.com/fannheyward/telescope-coc.nvim
+[submodule "nvim/pack/man/start/telescope-ultisnips.nvim"]
+	path = nvim/pack/man/start/telescope-ultisnips.nvim
+	url = https://github.com/fhill2/telescope-ultisnips.nvim.git
+[submodule "nvim/pack/man/start/nvim-web-devicons"]
+	path = nvim/pack/man/start/nvim-web-devicons
+	url = https://github.com/kyazdani42/nvim-web-devicons
