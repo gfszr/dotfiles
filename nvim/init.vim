@@ -211,7 +211,11 @@ let g:UltiSnipsJumpForwardTrigger="KJ"
 
 """ {{{ FZF
 
-set rtp+=/usr/local/opt/fzf
+if has("mac") && system("uname -p") ==# "arm\n"
+    set rtp+=/opt/homebrew/opt/fzf
+else
+    set rtp+=/usr/local/opt/fzf
+endif
 
 function! s:GotoOrOpen(command, ...)
   for file in a:000
@@ -475,3 +479,9 @@ nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>r :call RestartDapSession()<CR>
 nnoremap <silent> <leader>q :call DisconnectDapSession()<CR>
 """ }}} nvim-dap
+
+
+lua <<EOF
+require('telescope').setup()
+require('telescope').load_extension('coc')
+EOF
