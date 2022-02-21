@@ -8,6 +8,7 @@ NVIM_CONF=$NVIM_DIR/init.vim
 VIM_CONF=$HOME/.vimrc
 ZSHRC=$HOME/.zshrc
 ZSH_BULLET_TRAIN_THEME=$HOME/.oh-my-zsh/custom/themes/bullet-train.zsh-theme
+LSD_DIR=$CONFIG_DIR/lsd
 
 echo 'Checking for pre-existing files and directories'
 
@@ -47,6 +48,7 @@ remove_pre_existing $TMUX_DIR
 remove_pre_existing $TMUX_CONF
 remove_pre_existing $ZSHRC
 remove_pre_existing $ZSH_BULLET_TRAIN_THEME
+remove_pre_existing $LSD_DIR
 
 link `pwd`/zshrc $ZSHRC
 echo 'zshrc file installed successfully!'
@@ -66,3 +68,5 @@ echo 'Vim .vimrc compatability symlink installed successfully!'
 link `pwd`/zsh_theme/bullet-train.zsh/bullet-train.zsh-theme $ZSH_BULLET_TRAIN_THEME
 echo 'Bullet train ZSH theme was installed successfully!'
 
+link `pwd`/lsd $LSD_DIR
+echo 'LSD config dir installed successfully!'
