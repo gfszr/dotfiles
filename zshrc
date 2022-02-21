@@ -26,6 +26,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim=nvim
 alias tmux=tmux -2
+alias ls=lsd
 LANG="en_US.UTF-8"
 LC_COLLATE="en_US.UTF-8"
 LC_CTYPE="en_US.UTF-8"
