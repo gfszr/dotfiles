@@ -88,3 +88,6 @@
 [submodule "nvim/pack/man/start/telescope-dap.nvim"]
 	path = nvim/pack/man/start/telescope-dap.nvim
 	url = https://github.com/nvim-telescope/telescope-dap.nvim
+[submodule "nvim/pack/man/start/vim-devicons"]
+	path = nvim/pack/man/start/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons
