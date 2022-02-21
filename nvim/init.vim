@@ -68,12 +68,78 @@ map <c-h> <c-w>h
 """ {{{ vim-airline
 
 let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['coc', 'tabline']
+let g:airline_extensions = ['tabline']
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#coc#warning_symbol='  '
-let g:airline#extensions#coc#error_symbol='  '
+hi airline_x_errors ctermfg=red 
+hi airline_x_warnings ctermfg=yellow
+hi airline_x_hints ctermfg=white
+function! GetCocErrors()
+    let stat = get(b:, 'coc_diagnostic_info', {})
+    if stat == {} 
+        return ''
+    endif
+    return " " . stat['error'] . ' '
+endfunction
 
+function! GetCocWarnings()
+    let stat = get(b:, 'coc_diagnostic_info', {})
+    if stat == {} 
+        return ''
+    endif
+    return " " . stat['warning'] . ' '
+endfunction
+
+function! GetCocHints()
+    let stat = get(b:, 'coc_diagnostic_info', {})
+    if stat == {} 
+        return ''
+    endif
+    return " " . stat['hint'] . ' '
+endfunction
+
+function! GetCocFunction()
+    let f = get(b:, 'coc_current_function', '')
+    if f ==# ''
+        return f
+    endif
+    return '   ' . f
+endfunction
+
+function! GetGitsignsBranch()
+    let d = get(b:, 'gitsigns_status_dict', {})
+    let b = get(d, 'head', '')
+    return b
+endfunction
+
+function! GetGitsignsBranch()
+    let d = get(b:, 'gitsigns_status_dict', {})
+    let b = get(d, 'head', '')
+    if b ==# ''
+        return b
+    endif
+    return ' ' . b
+endfunction
+
+function! GetCurrentFile()
+    return expand("%:t")
+endfunction
+
+function! AirlineInit()
+    call airline#parts#define_function('custom_coc_errors', 'GetCocErrors')
+    call airline#parts#define_function('coc_current_function', 'GetCocFunction')
+    call airline#parts#define_function('custom_coc_warnings', 'GetCocWarnings')
+    call airline#parts#define_function('custom_coc_hints', 'GetCocHints')
+    call airline#parts#define_function('gitsigns_branch', 'GetGitsignsBranch')
+    call airline#parts#define_function('current_file', 'GetCurrentFile')
+    call airline#parts#define_accent('custom_coc_errors', 'errors')
+    call airline#parts#define_accent('custom_coc_warnings', 'warnings')
+    call airline#parts#define_accent('custom_coc_hints', 'hints')
+    let g:airline_section_x = airline#section#create(['custom_coc_errors', 'custom_coc_warnings', 'custom_coc_hints'])
+    let g:airline_section_c = airline#section#create(['current_file', 'coc_current_function'])
+    let g:airline_section_b = airline#section#create(['gitsigns_branch'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 """ }}} vim-airline
 

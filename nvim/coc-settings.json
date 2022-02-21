@@ -1,4 +1,5 @@
 {
+    "coc.preferences.currentFunctionSymbolAutoUpdate":true,
     "diagnostic.enableSign":false,
     "diagnostic.highlighLimit":0,
     "diagnostic.floatConfig": {
