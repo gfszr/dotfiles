@@ -23,6 +23,11 @@ Using `nvim-dap` and `nvim-dap-ui` to create a nice debug session:
 
 ![Demo4](imgs/dap_debug.jpg)
 
+Customizing `vim-airline` defaults to include `coc_current_function` and diagnostics information in
+case there is:
+
+![Demo5](imgs/pic3.jpg)
+
 ## Installation
 
 I've attached a very simple script `setup.sh` that removes prior configurations and creates symnolic
