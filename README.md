@@ -30,8 +30,8 @@ case there is:
 
 ## Installation
 
-I've attached a very simple script `setup.sh` that removes prior configurations and creates symnolic
-to the correct directories in this repo. 
+I've attached a very simple script `setup.sh` that removes prior configurations and creates
+symbolic links to the correct directories in this repo. 
 
 The setup script does not install dependencies, so make sure to install prior dependencies,
 otherwise some features may not work.
