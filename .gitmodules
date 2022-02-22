@@ -91,3 +91,6 @@
 [submodule "nvim/pack/man/start/vim-devicons"]
 	path = nvim/pack/man/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons
+[submodule "nvim/pack/man/start/nvim-treesitter"]
+	path = nvim/pack/man/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter

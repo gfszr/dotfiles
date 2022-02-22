@@ -160,6 +160,9 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 
+hi CocErrorFloat ctermfg=red
+hi CocWarningFloat ctermfg=yellow
+
 let g:coc_borderchars =  ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
 
 
@@ -543,7 +546,7 @@ require('telescope').setup({
             }
         },
         selection_caret = ' ',
-        prompt_prefix = ' ',
+        prompt_prefix = ' ',
     }
 })
 require('telescope').load_extension('coc')
@@ -558,3 +561,27 @@ nmap <space>r :Telescope coc references<CR>
 nmap <space>dap :Telescope dap commands<CR>
 
 """ }}} Telescope.nvim
+
+""" {{{ treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {'c', 'cpp', 'go', 'markdown', 'gomod', 'gowork', 'bash'},
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+""" }}} treesitter
