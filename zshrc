@@ -21,6 +21,7 @@ BULLETTRAIN_PROMPT_ORDER=(
 ZSH_THEME="bullet-train"
 
 export COLORTERM=truecolor
+export BAT_THEME="Visual Studio Dark+"
 
 source $ZSH/oh-my-zsh.sh
 
