@@ -86,7 +86,7 @@ apply_theme() {
 
     # status line
     status_fg=colour253 # white
-    status_bg="#151515" # dark gray
+    status_bg="#100f0f" # dark gray
     tmux set -g status-style fg=$status_fg,bg=$status_bg
 
     session_fg=colour16  # black
