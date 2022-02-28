@@ -27,6 +27,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vim=nvim
 alias tmux="tmux -2"
+alias ipython="python3 -m IPython"
 alias ls="lsd"
 LANG="en_US.UTF-8"
 LC_COLLATE="en_US.UTF-8"
