@@ -39,3 +39,5 @@ LC_TIME="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.extras.zsh ] && source ~/.extras.zsh
