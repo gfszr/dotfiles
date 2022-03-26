@@ -9,10 +9,16 @@ fi
 # Don't save history for less
 export LESSHISTFILE=/dev/null
 
+plugins=(
+    zsh-autosuggestions
+)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#424242"
+BULLETTRAIN_KCTX_BG=magenta
 BULLETTRAIN_PROMPT_CHAR=
 BULLETTRAIN_PROMPT_SEPARATE_LINE=false
 BULLETTRAIN_PROMPT_ORDER=(
     time
+    kctx
     status
     custom
     dir
