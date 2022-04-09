@@ -1,6 +1,6 @@
 {
     "go.goplsEnv": {
-        "GOOS":"windows"
+        "GOOS":"darwin"
     }, 
     "go.goplsPath":"gopls",
     "go.goplsOptions": {
@@ -88,12 +88,12 @@
             ],
             "rootPatterns": ["pyproject.toml", "setup.py", ".git"],
             "securities": {
-            "informational": "hint",
-            "refactor": "info",
-            "convention": "info",
-            "warning": "warning",
-            "error": "error",
-            "fatal": "error"
+                "informational": "hint",
+                "refactor": "info",
+                "convention": "info",
+                "warning": "warning",
+                "error": "error",
+                "fatal": "error"
             },
             "offsetColumn": 1,
             "offsetColumnEnd": 1,

@@ -3,7 +3,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 if [[ `uname -m` == 'arm64' ]]; then
-    export PATH=$PATH:/opt/homebrew/bin
+    export PATH=/opt/homebrew/bin:$PATH
 fi
 
 # Don't save history for less
@@ -26,6 +26,7 @@ BULLETTRAIN_PROMPT_ORDER=(
     )
 ZSH_THEME="bullet-train"
 
+export XDG_CONFIG_HOME=$HOME/.config
 export COLORTERM=truecolor
 export BAT_THEME="Visual Studio Dark+"
 
@@ -47,3 +48,4 @@ LC_ALL="en_US.UTF-8"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -f ~/.extras.zsh ] && source ~/.extras.zsh
+
