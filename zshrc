@@ -29,6 +29,7 @@ ZSH_THEME="bullet-train"
 export XDG_CONFIG_HOME=$HOME/.config
 export COLORTERM=truecolor
 export BAT_THEME="Visual Studio Dark+"
+export EDITOR=nvim
 
 source $ZSH/oh-my-zsh.sh
 
