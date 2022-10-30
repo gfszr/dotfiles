@@ -97,3 +97,15 @@
 [submodule "nvim/pack/man/start/jellybeans-nvim"]
 	path = nvim/pack/man/start/jellybeans-nvim
 	url = git@github.com:gfszr/jellybeans-nvim.git
+[submodule "nvim/pack/man/start/vim-terraform"]
+	path = nvim/pack/man/start/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+[submodule "nvim/pack/man/start/nvim-colorizer.lua"]
+	path = nvim/pack/man/start/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua.git
+[submodule "nvim/pack/man/start/lush.nvim"]
+	path = nvim/pack/man/start/lush.nvim
+	url = https://github.com/rktjmp/lush.nvim
+[submodule "nvim/pack/man/start/kotlin-vim"]
+	path = nvim/pack/man/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim
