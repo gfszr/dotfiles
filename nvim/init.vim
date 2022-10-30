@@ -21,11 +21,15 @@ set timeoutlen=200
 
 " Coloring
 set t_Co=256
-highlight ColorColumn ctermbg=233
+" highlight ColorColumn ctermbg=233
 set background=dark
 set cursorline
-color jellybeans
-exec 'hi SignColumn ctermbg=' . synIDattr(hlID('LineNr'),'bg')
+set termguicolors
+color jellybeans-nvim
+hi! CocSearch gui=underline guisp=LightBlue
+hi! CocPumSearch guifg=#8fbfdc
+hi! link CocFloatSbar PmenuSbar
+hi! link CocFloatThumb PmenuThumb
 set signcolumn=yes
 set nohlsearch
 
@@ -39,6 +43,10 @@ set expandtab
 set softtabstop=4
 set shiftwidth=4
 set shiftround
+autocmd FileType make setlocal noexpandtab
+autocmd FileType go setlocal noexpandtab
+autocmd bufwritepost *.go silent !$HOME/go/bin/gofumpt -extra -e -w %
+set noendofline
 
 " Setting smarter case
 set incsearch
@@ -67,13 +75,14 @@ map <c-h> <c-w>h
 
 """ {{{ vim-airline
 
+let g:airline_theme='jellybeans'
 let g:airline_powerline_fonts = 1
 let g:airline_extensions = ['tabline']
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
-hi airline_x_errors ctermfg=red 
-hi airline_x_warnings ctermfg=yellow
-hi airline_x_hints ctermfg=white
+hi airline_x_errors ctermfg=red guifg=#f68d8c
+hi airline_x_warnings ctermfg=yellow guifg=#ffd478
+hi airline_x_hints ctermfg=white guifg=#fffefe
 function! GetCocErrors()
     let stat = get(b:, 'coc_diagnostic_info', {})
     if stat == {} 
@@ -95,7 +104,7 @@ function! GetCocHints()
     if stat == {} 
         return ''
     endif
-    return " " . stat['hint'] . ' '
+    return " " . stat['information'] . ' '
 endfunction
 
 function! GetCocFunction()
@@ -160,31 +169,35 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 
-hi CocErrorFloat ctermfg=red
-hi CocWarningFloat ctermfg=yellow
+hi link CocMenuSel CursorLine
+hi CocErrorFloat ctermfg=red guifg=#f68d8c
+hi CocWarningFloat ctermfg=yellow guifg=#ffd478
 
 let g:coc_borderchars =  ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
 
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -383,7 +396,6 @@ endfunction
 
 """ {{{ Floaterm
 let g:floaterm_title = ""
-hi FloatermBorder guibg=orange guifg=cyan
 
 function! CreateOrToggleFloaterm(name, arguments)
     if index(floaterm#cmdline#complete_names1(), a:name) == -1
@@ -433,11 +445,11 @@ let g:vimspector_enable_mappings = 'HUMAN'
 """ }}} vimspector
 
 """ {{{ gitsigns
-lua << EOF
+lua <<EOF
 require('gitsigns').setup {
     signs = {
-    add          = {hl = 'GitSignsAdd'   , text = '', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
-    change       = {hl = 'GitSignsChange', text = '', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    add          = {hl = 'GitSignsAdd'   , text = '┃', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '┃', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeNr'},
@@ -447,18 +459,18 @@ require('gitsigns').setup {
 EOF
 
 " Change the default blue background for diffChange to the background of SignColumn
-exec 'hi diffChange ctermfg=' . synIDattr(hlID('diffChange'), 'bg') . ' ctermbg=' . synIDattr(hlID('SignColumn'), 'bg')
+" exec 'hi diffChange ctermfg=' . synIDattr(hlID('diffChange'), 'bg') . ' ctermbg=' . synIDattr(hlID('SignColumn'), 'bg')
 """ }}} gitsigns
 
 
 """ {{{ nvim-dep
-highlight DebugBreakpointHl ctermfg=red
-highlight DebugStoppedHl ctermfg=green
-highlight DebugBreakpointCondHl ctermfg=yellow
+highlight DebugBreakpointHl ctermfg=red guifg=#f68d8c
+highlight DebugStoppedHl ctermfg=green guifg=#a7d3a9
+highlight DebugBreakpointCondHl ctermfg=yellow guifg=#ffd478
 
 lua <<EOF
 require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
+  icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings
     expand = { "<CR>", "<2-LeftMouse>" },
@@ -466,25 +478,61 @@ require("dapui").setup({
     remove = "d",
     edit = "e",
     repl = "r",
+    toggle = "t",
   },
-  sidebar = {
-    -- You can change the order of elements in the sidebar
-    elements = {
-      -- Provide as ID strings or tables with "id" and "size" keys
-      {
-        id = "scopes",
-        size = 0.5, -- Can be float or integer > 1
+  -- Use this to override mappings for specific elements
+  element_mappings = {
+    -- Example:
+    -- stacks = {
+    --   open = "<CR>",
+    --   expand = "o",
+    -- }
+  },
+  -- Expand lines larger than the window
+  -- Requires >= 0.7
+  expand_lines = vim.fn.has("nvim-0.7") == 1,
+  -- Layouts define sections of the screen to place windows.
+  -- The position can be "left", "right", "top" or "bottom".
+  -- The size specifies the height/width depending on position. It can be an Int
+  -- or a Float. Integer specifies height/width directly (i.e. 20 lines/columns) while
+  -- Float value specifies percentage (i.e. 0.3 - 30% of available lines/columns)
+  -- Elements are the elements shown in the layout (in order).
+  -- Layouts are opened in order so that earlier layouts take priority in window sizing.
+  layouts = {
+    {
+      elements = {
+      -- Elements can be strings or table with id and size keys.
+        { id = "scopes", size = 0.25 },
+        "stacks",
+        "watches",
       },
-      { id = "watches", size = 00.5 },
+      size = 40, -- 40 columns
+      position = "left",
     },
-    size = 40,
-    position = "left", -- Can be "left", "right", "top", "bottom"
+    {
+      elements = {
+        "repl",
+      },
+      size = 0.25, -- 25% of total lines
+      position = "bottom",
+    },
   },
-  tray = {},
-  --   elements = { "repl" },
-  --   size = 10,
-  --   position = "right", -- Can be "left", "right", "top", "bottom"
-  -- },
+  controls = {
+    -- Requires Neovim nightly (or 0.8 when released)
+    enabled = true,
+    -- Display controls in this element
+    element = "repl",
+    icons = {
+      pause = "",
+      play = "",
+      step_into = "",
+      step_over = "",
+      step_out = "",
+      step_back = "",
+      run_last = "↻",
+      terminate = "□",
+    },
+  },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
     max_width = nil, -- Floats will be treated as percentage of your screen.
@@ -494,6 +542,10 @@ require("dapui").setup({
     },
   },
   windows = { indent = 1 },
+  render = {
+    max_type_length = nil, -- Can be integer or nil.
+    max_value_lines = 100, -- Can be integer or nil.
+  }
 })
 require('dap-go').setup()
 require('dap-python').setup('python3')
@@ -524,14 +576,26 @@ function! DisconnectDapSession()
 endfunction
 
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+nnoremap <silent> <F9> :lua require'dap'.step_into()<CR>
 nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
 nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
 nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>r :call RestartDapSession()<CR>
 nnoremap <silent> <leader>q :call DisconnectDapSession()<CR>
+
+
+
+lua <<EOF
+local dap = require('dap')
+dap.set_log_level('TRACE')
+EOF
+
+nmap <silent> <leader>dt :lua require('dap-go').debug_test()<CR>
+
+lua require('dap.ext.vscode').load_launchjs(vim.env.HOME .. "/.config/nvim/debug-launch.json")
+
 """ }}} nvim-dap
 
 
@@ -585,3 +649,8 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 """ }}} treesitter
+
+
+""" {{{ colorizer
+lua require'colorizer'.setup()
+""" }}} colorizer

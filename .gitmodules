@@ -94,3 +94,6 @@
 [submodule "gfszsr-airline-themes"]
 	path = nvim/pack/man/start/vim-airline-themes
 	url = https://github.com/gfszr/vim-airline-themes.git
+[submodule "nvim/pack/man/start/jellybeans-nvim"]
+	path = nvim/pack/man/start/jellybeans-nvim
+	url = git@github.com:gfszr/jellybeans-nvim.git

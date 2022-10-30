@@ -6,6 +6,9 @@ if [[ `uname -m` == 'arm64' ]]; then
     export PATH=/opt/homebrew/bin:$PATH
 fi
 
+export PATH=$PATH:$HOME/.yarn/bin
+source "$HOME/.cargo/env"
+
 # Don't save history for less
 export LESSHISTFILE=/dev/null
 
