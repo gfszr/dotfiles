@@ -594,7 +594,7 @@ EOF
 
 nmap <silent> <leader>dt :lua require('dap-go').debug_test()<CR>
 
-lua require('dap.ext.vscode').load_launchjs(vim.env.HOME .. "/.config/nvim/debug-launch.json")
+lua require('dap.ext.vscode').load_launchjs(vim.env.HOME .. "/.config/debug-launch.json")
 
 """ }}} nvim-dap
 
