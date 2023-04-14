@@ -18,6 +18,8 @@ set wrap
 set fo-=t
 set colorcolumn=100
 set timeoutlen=200
+set nofixendofline
+set laststatus=3
 
 " Coloring
 set t_Co=256
@@ -45,7 +47,7 @@ set shiftwidth=4
 set shiftround
 autocmd FileType make setlocal noexpandtab
 autocmd FileType go setlocal noexpandtab
-autocmd bufwritepost *.go silent !$HOME/go/bin/gofumpt -extra -e -w %
+autocmd bufwritepost *.go silent !$HOME/go/bin/gofumpt -extra -e -w % && $HOME/go/bin/gci write --skip-generated -s standard,default,prefix\(raftt.io/raftt\) %
 set noendofline
 
 " Setting smarter case
@@ -553,12 +555,12 @@ local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--   dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close()
+-- end
 
 vim.fn.sign_define('DapBreakpoint', {text='', texthl='DebugBreakpointHl', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='', texthl='DebugStoppedHl', linehl='', numhl=''})
@@ -604,14 +606,49 @@ lua <<EOF
 require('nvim-web-devicons').setup()
 require('telescope').setup({
     defaults = {
-        mappings = {
-            i = {
-                ["<esc>"] = require('telescope.actions').close,
-            }
+    prompt_prefix = "   ",
+    selection_caret = " ",
+    entry_prefix = "  ",
+    initial_mode = "insert",
+    selection_strategy = "reset",
+    sorting_strategy = "descending",
+    layout_strategy = "horizontal",
+    mappings = {
         },
-        selection_caret = ' ',
-        prompt_prefix = ' ',
-    }
+    layout_config = {
+      horizontal = {
+        prompt_position = "bottom",
+        preview_width = 0.6,
+        results_width = 0.9,
+      },
+      vertical = {
+        mirror = false,
+      },
+      width = 0.87,
+      height = 0.90,
+      preview_cutoff = 120,
+    },
+    file_sorter = require("telescope.sorters").get_fuzzy_file,
+    file_ignore_patterns = { "node_modules" },
+    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    path_display = { "truncate" },
+    winblend = 0,
+    border = {},
+    borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+    color_devicons = true,
+    set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    -- Developer configurations: Not meant for general override
+    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+    mappings = {
+      n = { ["q"] = require("telescope.actions").close },
+      i = { ["<esc>"] = require('telescope.actions').close },
+    },
+  },
+
+  extensions_list = { "themes", "terms" },
 })
 require('telescope').load_extension('coc')
 require('telescope').load_extension('ultisnips')
@@ -619,8 +656,7 @@ require('telescope').load_extension('dap')
 EOF
 
 nmap <space>ds :Telescope coc document_symbols<CR>
-nmap <space>ws :Telescope coc workspace_symbols<CR>
-nmap <space>sn :Telescope ultisnips<CR>
+nmap <space>s :Telescope coc workspace_symbols<CR>
 nmap <space>r :Telescope coc references<CR>
 nmap <space>dap :Telescope dap commands<CR>
 
@@ -654,3 +690,5 @@ EOF
 """ {{{ colorizer
 lua require'colorizer'.setup()
 """ }}} colorizer
+
+hi IndentBlanklineChar guifg=#1f1f1f
