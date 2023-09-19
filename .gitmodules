@@ -109,3 +109,6 @@
 [submodule "nvim/pack/man/start/kotlin-vim"]
 	path = nvim/pack/man/start/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim
+[submodule "nvim/pack/man/start/indent-blankline.nvim"]
+	path = nvim/pack/man/start/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim
