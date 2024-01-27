@@ -91,9 +91,6 @@
 [submodule "nvim/pack/man/start/nvim-treesitter"]
 	path = nvim/pack/man/start/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter
-[submodule "gfszsr-airline-themes"]
-	path = nvim/pack/man/start/vim-airline-themes
-	url = https://github.com/gfszr/vim-airline-themes.git
 [submodule "nvim/pack/man/start/jellybeans-nvim"]
 	path = nvim/pack/man/start/jellybeans-nvim
 	url = git@github.com:gfszr/jellybeans-nvim.git
@@ -112,3 +109,6 @@
 [submodule "nvim/pack/man/start/indent-blankline.nvim"]
 	path = nvim/pack/man/start/indent-blankline.nvim
 	url = https://github.com/lukas-reineke/indent-blankline.nvim
+[submodule "nvim/pack/man/start/vim-airline-themes"]
+	path = nvim/pack/man/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
