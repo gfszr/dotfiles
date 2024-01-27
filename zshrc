@@ -7,7 +7,6 @@ if [[ `uname -m` == 'arm64' ]]; then
 fi
 
 export PATH=$PATH:$HOME/.yarn/bin
-source "$HOME/.cargo/env"
 
 # Don't save history for less
 export LESSHISTFILE=/dev/null
